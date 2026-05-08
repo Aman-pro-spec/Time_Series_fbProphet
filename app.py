@@ -162,7 +162,7 @@ if df is not None:
                         if st.button("📊 Evaluate Model Accuracy"):
                             with st.spinner("Running cross-validation..."):
                                 try:
-                                    df_cv = cross_validation(m, initial=f'{cv_initial} days', period=f'{cv_period} days', horizon=f'{cv_horizon} days')
+                                    df_cv = cross_validation(m, initial=f'{cv_initial} days', period=f'{cv_period} days', horizon=f'{cv_horizon} days', parallel="threads")
                                     df_p = performance_metrics(df_cv)
                                     
                                     st.success("Cross-validation completed!")
