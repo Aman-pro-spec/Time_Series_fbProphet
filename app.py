@@ -6,7 +6,11 @@ import plotly.graph_objs as go
 from prophet.plot import plot_plotly, plot_components_plotly, plot_cross_validation_metric
 from prophet.diagnostics import cross_validation, performance_metrics
 import os
+import logging
 
+# Suppress cmdstanpy logger to prevent Streamlit deployment hangs
+logging.getLogger('cmdstanpy').disabled = True
+logging.getLogger('prophet').setLevel(logging.WARNING)
 st.set_page_config(
     page_title="Time Series Forecaster",
     page_icon="📈",
